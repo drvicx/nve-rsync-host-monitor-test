@@ -115,6 +115,7 @@ nve-rsync-host-monitor-test/
 │
 ├── scripts/                              ## step-010
 │   ├── install.sh                        ## step-011
+│   ├── install_remove.sh                 ## step-029
 │   └── run.sh                            ## step-012
 │
 ├── systemd/                              ## step-013
