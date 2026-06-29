@@ -41,29 +41,46 @@ This repo is a part of Rsync Monitoring Project: \
 
 ```
 Request.: 
-           GET https://notcloud.ru/apps/esrn-rsync-monitoring/api/status
+            GET https://notcloud.ru/apps/esrn-rsync-monitoring/
+            curl -s https://notcloud.ru/apps/esrn-rsync-monitoring/ | jq '.'
 Response:
-           {
-              "status": "OK",
-              "code": 200
-           }
+            {
+               "service": "RSync Monitoring",
+               "version": "1.0.0",
+               "endpoints": {
+                  "/api/status": "Checks service status",
+                  "/api/data": "Retrieves monitoring data from DB"
+               }
+            }
 
+--
 Request.: 
-          GET https://notcloud.ru/apps/esrn-rsync-monitoring/api/data
+            GET https://notcloud.ru/apps/esrn-rsync-monitoring/api/data
+            curl -s https://notcloud.ru/apps/esrn-rsync-monitoring/api/data | jq '.'
 Response:
-          {
-             "message": "Hello from RSync Monitoring",
+            {
+               "message": "Hello from RSync Monitoring",
 
-             "serverInfo": {
-                "currentTS": "2026-06-27T11:00:02",
-                "osVersion": "Ubuntu 24.04 LTS",
-                "osKernel": "6.8.0-124-generic"
-              }
-          }
+               "serverInfo": {
+                  "currentTS": "2026-06-27T11:00:02",
+                  "osVersion": "Ubuntu 24.04 LTS",
+                  "osKernel": "6.8.0-124-generic"
+               }
+            }
+
+--
+Request.: 
+            GET https://notcloud.ru/apps/esrn-rsync-monitoring/api/status
+            curl -s https://notcloud.ru/apps/esrn-rsync-monitoring/api/status | jq '.'
+Response:
+            {
+               "status": "OK",
+               "code": 200
+            }
 
 ```
 
-## Structure
+## Structure && Development steps
 
 ```
 nve-rsync-host-monitor-test/
@@ -96,7 +113,8 @@ nve-rsync-host-monitor-test/
 │
 ├── requirements.txt                ## step-001
 │
-├──LICENSE
-└──README.md                        ## step-000
+├── .gitignore                      ## step-020
+├── LICENSE
+└── README.md                       ## step-000
 
 ```
