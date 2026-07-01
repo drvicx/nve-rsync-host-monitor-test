@@ -22,6 +22,7 @@ on:
 env:
   DEPLOYMENT_TYPE: 'update'
   PROJECT_DIR: '/opt/apps/nve-rsync-host-monitor-test'
+  USER_SERVICE_NAME: 'nve-rsync-monitor'
 
 jobs:
   deploy:
@@ -43,6 +44,7 @@ jobs:
         env:
           # ChoseDeployTypePriority: If runs manually, param takes from GitHub repo Variables, otherwise from Env
           DEPLOY_TYPE: ${{ github.event.inputs.deployment_type || env.DEPLOYMENT_TYPE }}
+          SERVICE_NAME: ${{ env.USER_SERVICE_NAME }}
         run: |
           ssh -p ${{ secrets.DEPLOYER_HOST_PORT }} \
               ${{ secrets.DEPLOYER_USER_NAME }}@${{ secrets.DEPLOYER_HOST_FDQN }} << 'EOF'
@@ -87,6 +89,11 @@ jobs:
               if [ ! -d "$PROJECT_DIR" ]; then
                 echo "Project directory not found. Performing clean deploy instead..."
                 clean_deploy
+                # Restart user service and Check service status
+                echo "User Service name: $SERVICE_NAME"
+                sudo systemctl restart "$SERVICE_NAME"
+                sudo systemctl status "$SERVICE_NAME"
+                #
                 return
               fi
               
