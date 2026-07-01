@@ -32,6 +32,9 @@ echo "6. Configuring and Starting app as systemd service..."
 # Copy service configuration file to systemd directory
 sudo cp systemd/nve-rsync-monitor.service /etc/systemd/system/
 sudo systemctl daemon-reload
+# Enable and Start python app as a system service
+sudo systemctl enable nve-rsync-monitor
+sudo systemctl start nve-rsync-monitor
 
 echo "========================================="
 echo "Install complete!"
