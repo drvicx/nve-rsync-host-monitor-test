@@ -66,7 +66,7 @@ Response:
                   "osVersion": "Ubuntu 24.04 LTS",
                   "osKernel": "6.8.0-124-generic"
                },
-               "debugMessage": "test_202607_2"
+               "debugMessage": "test_202607_6"
             }
 
 --
@@ -87,8 +87,8 @@ Response:
 nve-rsync-host-monitor-test/
 │
 ├── .github/                              ## step-030 <
-│   └── workflows/                        ## step-031 < 
-│       └── deploy.yaml                   ## step-032 < 
+│   └── workflows/                        ## step-031 <
+│       └── deploy.yaml                   ## step-032 <
 │
 ├── app/
 │   ├── __init__.py                       ## step-015
