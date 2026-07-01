@@ -35,6 +35,7 @@ sudo systemctl daemon-reload
 # Enable and Start python app as a system service
 sudo systemctl enable nve-rsync-monitor
 sudo systemctl start nve-rsync-monitor
+sudo systemctl restart nve-rsync-monitor
 
 echo "========================================="
 echo "Install complete!"

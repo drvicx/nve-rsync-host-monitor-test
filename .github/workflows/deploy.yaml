@@ -52,6 +52,7 @@ jobs:
             
             DEPLOY_TYPE="${{ env.DEPLOY_TYPE }}"
             PROJECT_DIR="${{ env.PROJECT_DIR }}"
+            SERVICE_NAME="${{ env.SERVICE_NAME }}"
             
             echo "-- Starting deployment (Type: $DEPLOY_TYPE) --"
             
@@ -89,17 +90,16 @@ jobs:
               if [ ! -d "$PROJECT_DIR" ]; then
                 echo "Project directory not found. Performing clean deploy instead..."
                 clean_deploy
-                # Restart user service and Check service status
-                echo "User Service name: $SERVICE_NAME"
-                sudo systemctl restart "$SERVICE_NAME"
-                sudo systemctl status "$SERVICE_NAME"
-                #
                 return
               fi
               
               cd "$PROJECT_DIR"
               echo "Pulling latest changes..."
               git pull
+              # Restart user service and Check service status
+              echo "User Service name: $SERVICE_NAME"
+              sudo systemctl restart "$SERVICE_NAME"
+              sudo systemctl status "$SERVICE_NAME"
             }
             
             # == Deploy Type Choose (clean, update) ==
