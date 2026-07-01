@@ -15,12 +15,12 @@ on:
           - update
           - clean
 
-# UserDefinedParameter: 'update' - update existed,  'clean' -  deploy mode
-# - update: updates existing code in app dir
-# - clean:  removes app service and app dir, then clone repo and starts app service
+# UserDefinedParameter [DeployMode]:
+# - update: updates existing code in project dir
+# - clean:  removes app service and project dir, then clone repo and starts app service
 #
 env:
-  DEPLOYMENT_TYPE: 'clean'
+  DEPLOYMENT_TYPE: 'update'
   PROJECT_DIR: '/opt/apps/nve-rsync-host-monitor-test'
 
 jobs:

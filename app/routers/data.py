@@ -63,5 +63,5 @@ async def get_data(db: Session = Depends(get_db)):
             "osVersion": os_version,
             "osKernel": os_kernel
         },
-        "debugMessage": "test_202607_1"
+        "debugMessage": "test_202607_2"
     }

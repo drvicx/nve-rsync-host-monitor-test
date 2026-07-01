@@ -65,7 +65,8 @@ Response:
                   "currentTS": "2026-06-27T11:00:02",
                   "osVersion": "Ubuntu 24.04 LTS",
                   "osKernel": "6.8.0-124-generic"
-               }
+               },
+               "debugMessage": "test_202607_2"
             }
 
 --
